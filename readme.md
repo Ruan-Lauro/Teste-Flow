@@ -1,5 +1,5 @@
 <h1 align="center" >
-  <img alt="VFlows" title="VFlows" src=".github/logo.png" width="200px" style="background:#373435; padding:16px"/>
+  Teste de Ruan Lauro
 </h1>
 
 <h3 align="center">
