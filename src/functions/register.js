@@ -6,7 +6,7 @@ $(document).ready(function () {
         const productHtml = `
             <div class="allProcutDiv" data-product-id="${productCount}">
                 <div class="delete">
-                    <img src="../assents/lixo.png" alt="lixo">
+                    <img src="../../assents/lixo.png" alt="lixo">
                 </div>
                 <div class="procutDiv">
                     <div class="numberProduct">
@@ -14,7 +14,7 @@ $(document).ready(function () {
                     </div>
                     <div class="inforProduct">
                         <div class="imgInforProduct">
-                            <img src="../assents/box.png" alt="caixa">
+                            <img src="../../assents/box.png" alt="caixa">
                         </div>
                         <div class="registerInforProduct">
                             <div class="col-12">
@@ -35,7 +35,7 @@ $(document).ready(function () {
                                             <option value="Palete">Palete</option>
                                         </select>
                                         <div class="triangle" id="triangle">
-                                            <img src="../assents/triangulo.png" alt="Triângulo">
+                                            <img src="../../assents/triangulo.png" alt="Triângulo">
                                         </div>
                                     </div>
                                 </div>
@@ -130,10 +130,10 @@ $(document).ready(function () {
                 const productHtmlA = `
                  <div class="sectionPostAnnex">
                         <div class="deleteAnnex">
-                            <img src="../assents/lixo.png" alt="lixo">
+                            <img src="../../assents/lixo.png" alt="lixo">
                         </div>
                         <div class="eyeAnnex" id="eyeAnnex">
-                            <img src="../assents/Eye.png" alt="eye">
+                            <img src="../../assents/Eye.png" alt="eye">
                         </div>
                         <div class="inforAnnex">
                             <p id="nameAnnex" id="nameAnnex">${fileName}</p>
@@ -175,10 +175,6 @@ $(document).ready(function () {
             inscricaoMunicipal: $('#inputICounty').val(),
             cep: $('#inputCEP').val(),
             endereco: $('#inputAddress').val(),
-            complemento: $('#inputComplement').val(),
-            bairro:  $('#inputNeighborhood').val(),
-            municipio:  $('#inputCounty').val(),
-            estado:  $('#inputState').val(),
             nomeContato: $('#inputNamePC').val(),
             telefoneContato: $('#inputPhone').val(),
             emailContato: $('#inputEmail').val(),
@@ -224,8 +220,7 @@ $(document).ready(function () {
 
           Supplier.anexos = listAnnex;
 
-        for (let y in Supplier) {
-           if(Supplier[y] === "" || Supplier[y] === undefined){
+          if(Supplier.cep == "" || Supplier.cep == undefined && Supplier.cnpj == "" || Supplier.cnpj == undefined && Supplier.emailContato == "" || Supplier.emailContato == undefined && Supplier.endereco == "" || Supplier.endereco == undefined && Supplier.nomeContato == "" || Supplier.nomeContato == undefined && Supplier.nomeFantasia == "" || Supplier.nomeFantasia == undefined && Supplier.razaoSocial == "" || Supplier.razaoSocial == undefined && Supplier.telefoneContato == "" || Supplier.cep == undefined){
           
             $('#errorP').text("Dados do fornecedor incompletos")
             $('#errorP').css({
@@ -293,7 +288,6 @@ $(document).ready(function () {
              
             }
            }
-        }
 
     });
 
