@@ -1,0 +1,733 @@
+*{  
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+   
+}
+
+
+.allRegister{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.headerRegister {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.headerRegister h1{
+    text-align: center;
+    font-size: 32px;
+}
+
+.mainRegister{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.sectionSupplier{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.TitleSupplier{
+    display: flex;  
+    color: white;
+    background-color: #0085B2;
+    z-index: 999;
+    width: 100%;
+    border-top-left-radius: 0.3rem;  
+    border-top-right-radius: 0.3rem;   
+}
+
+.TitleSupplier h2{
+    font-size: 20px;
+    font-weight: 500;
+    margin-top:6px;
+    margin-bottom: 6px;
+    margin-left: 6px;
+}
+
+form{
+    width: 100%;
+    border: 2px solid black;
+    padding: 0 10px;
+    border-radius: 1rem;
+}
+
+.col-new{
+    width: 100%;
+    display: flex;
+    font-weight: 500;
+    font-size: 20px;
+    gap: 15px;
+}
+
+.col-new input{
+    border: 2px solid black;
+    margin-top: -10px;
+}
+
+.col-new-one{
+    width: 61%;
+    
+}
+
+.col-new-two{
+    width: 38%;
+}
+
+
+.col-new-Infor input{
+    margin-top: -10px;
+    border: 2px solid black;
+}
+
+.col-new-Infor{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.col-new-Infor-one{
+    width: 38%;
+}
+
+.col-new-Infor-two{
+    width: 38%;
+}
+
+.col-12{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.col-12 input{
+    margin-top: -10px;
+    border: 2px solid black;
+}
+
+.col-new-Add{
+    display: flex;
+}
+
+.col-new-Add{
+    font-weight: 500;
+    font-size: 20px;
+    gap: 15px;
+}
+
+.col-new-Add input{
+    margin-top: -10px;
+    border: 2px solid black;
+}
+
+.col-new-Add-N{
+    width: 38%;
+    
+}
+
+.col-new-Add-C{
+    width: 38%;
+   
+}
+
+.col-new-Add-S{
+    width: 23%;
+}
+
+
+#contacDiv{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+#contacDiv input{
+    margin-top: -10px;
+    border: 2px solid black;
+}
+
+.sectionProduct{
+    margin-top: -10px;
+    padding-top: 30px;
+}
+
+#buttonProduct{
+    border-radius: 0.2rem;
+    border: 0;
+    margin: 20px 0;
+    background-color: green;
+    padding: 10px 0;
+}
+
+.allProcutDiv{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.delete{
+    border: 1px solid black;
+    background-color: red;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.delete img{
+    width: 40px;
+    height: 40px;
+}
+
+.procutDiv{
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.numberProduct{
+    width: 120px;
+    margin-top: -15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: white;
+}
+
+.numberProduct p {
+    margin-bottom: 0;
+}
+
+.inforProduct{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+    padding-right: 15px;
+}
+
+.imgInforProduct{
+    background-color: #8290CD;
+    padding: 20px 21px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.imgInforProduct img{
+    width: 90px;
+    height: 90px;
+    transform: scaleX(-1);
+}
+
+.registerInforProduct{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.detailRegisterInforProduct{
+    gap: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    margin-top: 10px;
+}
+
+.detailRegisterInforProduct input{
+    border: 2px solid black;
+    margin-top: -10px;
+}   
+
+.col-product-one{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.col-product-one label{
+    margin-bottom: -1px;
+}
+
+.divMeasurement{
+    display: flex;
+    border: 2px solid black;
+    border-radius: 0.3rem;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.measurement{
+    cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  width: 100%;
+  border: 0;
+  padding-left: 10px;
+  height: 100%;
+  background-color: transparent;
+  z-index: 999;
+}
+
+.triangle {
+   
+    background-color: black;
+    height: 100%;
+    width:16%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+}
+
+.triangle img{
+    width: 15px;
+    transform: scaleY(-1);
+}
+
+
+
+
+
+.col-product-two{
+    width: 100%;
+}
+
+.col-product-three{
+    width: 100%;
+}
+
+.col-product-four{
+    width: 100%;  
+}
+
+#total{
+    height: 40px;
+    border-radius: 0.3rem;
+    margin-bottom: 0;
+}
+
+.inforTotal{
+    margin-bottom: 0;
+}
+
+.inforTT{
+    background-color: #ABAC9E;
+    border: 2px solid black;
+}
+
+#buttonAnnex{
+    border-radius: 0.2rem;
+    border: 0;
+    margin: 20px 0;
+    background-color: green;
+    padding: 10px 0;
+}
+
+.sectionAnnex{
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.itemsP{
+    width: 60px;
+    margin-top: -15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: white;
+}
+
+.sectionPostAnnex{
+    display:flex ;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.deleteAnnex{
+    display: flex;
+    border: 1px solid black;
+    background-color: red;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 0.2rem;
+}
+
+.deleteAnnex img{
+    width: 40px;
+    height: 40px;
+}
+
+.eyeAnnex{
+    display: flex;
+    background-color: #0085B2;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 0.2rem;
+}
+
+.eyeAnnex img{
+    width: 41px;
+    height: 41px;
+    object-fit: contain;
+}
+.inforAnnex{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.inforAnnex p{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+footer{
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+#buttonSave{
+    border-radius: 0.2rem;
+    border: 0;
+    background-color: green;
+    padding: 10px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.0);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+   
+}
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.7); 
+    border-left: 8px solid #3498db; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+@media (max-width: 1050px){
+    .headerRegister h1{
+        font-size: 28px;
+    }
+
+    .form-label{
+        font-size: 16px;
+    }
+
+    .TitleSupplier h2{
+        font-size: 16px;
+       
+    }
+
+    .headerRegister h1{
+
+        font-size: 28px;
+    }
+
+    .col-new-Infor{
+        font-size: 16px;
+    }
+
+    .col-12{
+      
+        font-size: 16px;
+    }
+
+    .col-new-Add{
+        font-size: 16px;
+    }
+
+    #contacDiv{
+        font-size: 16px;
+    }
+
+    .numberProduct{
+        font-size: 16px;
+    }
+
+    .detailRegisterInforProduct{
+        font-size: 16px;
+    }
+
+    .inforAnnex p{
+        font-size: 16px;
+    }
+    
+
+    
+}
+
+@media (max-width: 925px){
+    .headerRegister h1{
+        font-size: 28px;
+    }
+
+    .form-label{
+        font-size: 14px;
+    }
+
+    .TitleSupplier h2{
+        font-size: 14px;
+       
+    }
+
+    .headerRegister h1{
+
+        font-size: 28px;
+    }
+
+    .col-new-Infor{
+        font-size: 14px;
+    }
+
+    .col-12{
+      
+        font-size: 14px;
+    }
+
+    .col-new-Add{
+        font-size: 14px;
+    }
+
+    #contacDiv{
+        font-size: 14px;
+    }
+
+    .numberProduct{
+        font-size: 14px;
+    }
+
+    .detailRegisterInforProduct{
+        font-size: 14px;
+    }
+
+    .inforAnnex p{
+        font-size: 14px;
+    }
+    
+}
+
+@media(max-width: 853px){
+    
+.detailRegisterInforProduct{
+    gap: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+}
+
+@media(max-width: 600px){
+
+    .col-new{
+        flex-direction: column;
+    }
+    
+    .col-new-one{
+        width: 100%;
+        
+    }
+    
+    .col-new-two{
+        width: 100%;
+    }
+    
+    
+    .col-new-Infor{
+        width: 100%;
+        flex-direction: column;
+       
+    }
+    
+    .col-new-Infor-one{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .col-new-Infor-two{
+        width: 100%;
+    }
+    
+    .col-12{
+        font-weight: 600;
+        font-size: 20px;
+    }
+    
+    .col-12 input{
+        margin-top: -10px;
+        border: 2px solid black;
+    }
+    
+    .col-new-Add{
+        display: flex;
+    }
+    
+    .col-new-Add{
+        font-weight: 500;
+        font-size: 20px;
+        gap: 15px;
+        flex-direction: column;
+    }
+    
+    .col-new-Add input{
+        margin-top: -10px;
+        border: 2px solid black;
+    }
+    
+    .col-new-Add-N{
+        width: 100%;
+        
+    }
+    
+    .col-new-Add-C{
+        width: 100%;
+       
+    }
+    
+    .col-new-Add-S{
+        width: 100%;
+    }
+
+    #contacDiv{
+        width: 100%;
+       margin-right: 0;
+       margin-left: 0;
+       margin-top: 0;
+       padding: 0;
+    }
+
+    
+
+
+    
+   
+}
+
+@media(max-width: 463px){
+
+    .inforProduct{
+       flex-direction: column;
+    }
+
+    .imgInforProduct{
+        background-color: #8290CD;
+        padding: 20px 21px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .imgInforProduct img{
+        width: 40px;
+        height: 40px;
+        transform: scaleX(-1);
+    }
+}
+
+@media(max-width: 350px){
+
+    .headerRegister h1{
+        font-size: 25px;
+    }
+}
+
+
+@media(max-width: 350px){
+
+    .headerRegister h1{
+        font-size: 22px;
+    }
+
+    .allProcutDiv{
+        flex-direction: column;
+    }
+
+    .delete{
+        margin-bottom: 20px;
+    }
+}
+
+
