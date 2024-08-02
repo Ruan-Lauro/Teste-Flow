@@ -1,7 +1,7 @@
 $(document).ready(function () {
     let productCount = 1;
     const sectionProduct = $('#sectionProduct');
-    
+
     $('#buttonProduct').click(function () {
         const productHtml = `
             <div class="allProcutDiv" data-product-id="${productCount}">
@@ -62,12 +62,12 @@ $(document).ready(function () {
         productCount++;
     });
 
-   
+
     sectionProduct.on('input', '.inputQE, .inputVU', function () {
         updateProductValues();
     });
 
-    
+
     function updateProductValues() {
         $('.allProcutDiv').each(function (index) {
             const quantity = parseFloat($(this).find('.inputQE').val()) || 0;
@@ -77,7 +77,7 @@ $(document).ready(function () {
         });
     }
 
-    function updateIndex(idDe){
+    function updateIndex(idDe) {
 
         let maxId = 0;
         let value = 0;
@@ -86,23 +86,23 @@ $(document).ready(function () {
             var a = 0
             const valueP = $(this).closest('.allProcutDiv').find('#valueP').text();
             const productNumber = parseInt(valueP.split(' - ')[1]);
-           if(idDe < productNumber){
-            $(this).closest('.allProcutDiv').find('#valueP').text(`Produto - ${productNumber - 1}`);
-            value = 1;
-           }
+            if (idDe < productNumber) {
+                $(this).closest('.allProcutDiv').find('#valueP').text(`Produto - ${productNumber - 1}`);
+                value = 1;
+            }
 
-           if (productNumber > maxId) {
-            maxId = productNumber;
-           }
-           
+            if (productNumber > maxId) {
+                maxId = productNumber;
+            }
+
         });
 
         productCount = maxId + 1 - value;
-   
+
 
     }
 
-    
+
     sectionProduct.on('click', '.delete', function () {
         const valueP = $(this).closest('.allProcutDiv').find('#valueP').text();
         const productNumber = valueP.split(' - ')[1];
@@ -110,25 +110,31 @@ $(document).ready(function () {
         updateIndex(parseInt(productNumber))
     });
 
-   
 
-    $('#buttonAnnex').on('click', function() {
-        $('#fileInput').click(); 
+
+    $('#buttonAnnex').on('click', function () {
+        $('#fileInput').click();
     });
 
-    $('#fileInput').on('change', function(event) {
-        var files = event.target.files; 
-        
+    $('#fileInput').on('change', function (event) {
+        var files = event.target.files;
+    
         for (var i = 0; i < files.length; i++) {
             var file = files[i];
             var reader = new FileReader();
-            reader.onload = function(e) {
-               
-                var base64String = btoa(e.target.result); 
+            reader.onload = function (e) {
+                var base64String = e.target.result;
                 var fileName = file.name;
-                
-                const productHtmlA = `
-                 <div class="sectionPostAnnex">
+    
+                var uniqueKey = 'file_' + new Date().getTime() + '_' + i;
+    
+                sessionStorage.setItem(uniqueKey, JSON.stringify({
+                    fileName: fileName,
+                    fileContent: base64String
+                }));
+    
+                var productHtmlA = `
+                    <div class="sectionPostAnnex">
                         <div class="deleteAnnex">
                             <img src="../../assents/lixo.png" alt="lixo">
                         </div>
@@ -136,36 +142,35 @@ $(document).ready(function () {
                             <img src="../../assents/Eye.png" alt="eye">
                         </div>
                         <div class="inforAnnex">
-                            <p id="nameAnnex" id="nameAnnex">${fileName}</p>
+                            <p id="nameAnnex">${fileName}</p>
                             <p style="display: none;" id="base64Annex">${base64String}</p>
-                              <a id="downloadLink" style="display:none;">Download</a>
-                        </div>`;
+                            <a id="downloadLink" style="display:none;">Download</a>
+                        </div>
+                    </div>`;
     
-            $(productHtmlA).insertBefore('#fileInput').closest('.d-grid');
-            
+                $(productHtmlA).insertBefore('#fileInput').closest('.d-grid');
             };
-            reader.readAsBinaryString(file);
-            
+            reader.readAsDataURL(file); 
         }
     });
+    
 
     $('#sectionProductA').on('click', '.deleteAnnex', function () {
         $(this).closest('.sectionPostAnnex').remove();
     });
 
     $('#sectionProductA').on('click', '#eyeAnnex', function () {
-       
+
         const valueD = $(this).closest('.sectionPostAnnex').find('#base64Annex').text();
         const fileName = $(this).closest('.sectionPostAnnex').find('#nameAnnex').text();
-        const dataUri = 'data:application/octet-stream;base64,' + valueD;
-        $('#downloadLink').attr('href', dataUri);
+        $('#downloadLink').attr('href', valueD);
         $('#downloadLink').attr('download', fileName);
         $('#downloadLink').text('Baixar ' + fileName);
         $('#downloadLink')[0].click();
     });
 
-   
-    $('#buttonSave').click(function (){
+
+    $('#buttonSave').click(function () {
         $("#loadingModal").fadeIn();
         const Supplier = {
             razaoSocial: $('#inputRZ').val(),
@@ -190,16 +195,16 @@ $(document).ready(function () {
 
         $('.allProcutDiv').each(function (index) {
 
-          const products = {
-            indice: $(this).closest('.allProcutDiv').find('#valueP').text().split(' - ')[1],
-			descricaoProduto:  $(this).find('#inputProduct').val(),
-			unidadeMedida: $(this).find('#measurement').val(),
-			qtdeEstoque: $(this).find('#inputQS').val(),
-			valorUnitario: $(this).find('#inputUV').val(),
-			valorTotal: $(this).find('#total').text(),	
-          };
+            const products = {
+                indice: $(this).closest('.allProcutDiv').find('#valueP').text().split(' - ')[1],
+                descricaoProduto: $(this).find('#inputProduct').val(),
+                unidadeMedida: $(this).find('#measurement').val(),
+                qtdeEstoque: $(this).find('#inputQS').val(),
+                valorUnitario: $(this).find('#inputUV').val(),
+                valorTotal: $(this).find('#total').text(),
+            };
 
-          list.push(products);
+            list.push(products);
         });
 
         Supplier.produtos = list;
@@ -209,64 +214,64 @@ $(document).ready(function () {
 
             const annex = {
                 indice: value,
-				nomeArquivo: $(this).find('#nameAnnex').text(),
-				blobArquivo: $(this).find('#base64Annex').text(),
+                nomeArquivo: $(this).find('#nameAnnex').text(),
+                blobArquivo: $(this).find('#base64Annex').text(),
             };
-  
+
             listAnnex.push(annex);
 
             value += 1;
-          });
+        });
 
-          Supplier.anexos = listAnnex;
+        Supplier.anexos = listAnnex;
 
-          if(Supplier.cep == "" || Supplier.cep == undefined && Supplier.cnpj == "" || Supplier.cnpj == undefined && Supplier.emailContato == "" || Supplier.emailContato == undefined && Supplier.endereco == "" || Supplier.endereco == undefined && Supplier.nomeContato == "" || Supplier.nomeContato == undefined && Supplier.nomeFantasia == "" || Supplier.nomeFantasia == undefined && Supplier.razaoSocial == "" || Supplier.razaoSocial == undefined && Supplier.telefoneContato == "" || Supplier.cep == undefined){
-          
+        if (Supplier.cep == "" || Supplier.cep == undefined && Supplier.cnpj == "" || Supplier.cnpj == undefined && Supplier.emailContato == "" || Supplier.emailContato == undefined && Supplier.endereco == "" || Supplier.endereco == undefined && Supplier.nomeContato == "" || Supplier.nomeContato == undefined && Supplier.nomeFantasia == "" || Supplier.nomeFantasia == undefined && Supplier.razaoSocial == "" || Supplier.razaoSocial == undefined && Supplier.telefoneContato == "" || Supplier.cep == undefined) {
+
             $('#errorP').text("Dados do fornecedor incompletos")
             $('#errorP').css({
                 "color": "red",
                 "font-size": "20px",
-                "font-weight":"500"
+                "font-weight": "500"
             })
-           }else{
-            if(Supplier.produtos.length == 0){
-                $("#loadingModal").fadeOut(); 
+        } else {
+            if (Supplier.produtos.length == 0) {
+                $("#loadingModal").fadeOut();
                 $('#errorP').text("Sem nenhum produto cadastrado")
                 $('#errorP').css({
                     "color": "red",
                     "font-size": "20px",
-                    "font-weight":"500"
+                    "font-weight": "500"
                 })
-            }else{
+            } else {
 
-                if(Supplier.anexos.length == 0){
-                    $("#loadingModal").fadeOut(); 
+                if (Supplier.anexos.length == 0) {
+                    $("#loadingModal").fadeOut();
                     $('#errorP').text("Está faltando anexar arquivo")
                     $('#errorP').css({
                         "color": "red",
                         "font-size": "20px",
-                        "font-weight":"500"
+                        "font-weight": "500"
                     })
-                }else{
-                    Supplier.produtos.map(valueN=>{
-                        for(let j in valueN){
-                            if(valueN[j] == "" || valueN[j] == undefined){
-                                $("#loadingModal").fadeOut(); 
+                } else {
+                    Supplier.produtos.map(valueN => {
+                        for (let j in valueN) {
+                            if (valueN[j] == "" || valueN[j] == undefined) {
+                                $("#loadingModal").fadeOut();
                                 $('#errorP').text("Está faltando informação nos produtos")
                                 $('#errorP').css({
                                     "color": "red",
                                     "font-size": "20px",
-                                    "font-weight":"500"
+                                    "font-weight": "500"
                                 })
                                 return
-                            }else{
-                                $("#loadingModal").fadeOut(); 
+                            } else {
+                                $("#loadingModal").fadeOut();
                                 $('#errorP').text("Arquivos salvos")
-                                    $('#errorP').css({
-                                        "color": "black",
-                                        "font-size": "20px",
-                                        "font-weight":"500"
-                                    })
+                                $('#errorP').css({
+                                    "color": "black",
+                                    "font-size": "20px",
+                                    "font-weight": "500"
+                                })
                             }
                         }
 
@@ -278,16 +283,16 @@ $(document).ready(function () {
                         $('#downloadLink').attr('download', "Fornecedor");
                         $('#downloadLink').text('Baixar ' + "Fornecedor");
                         $('#downloadLink')[0].click();
-                        
+
                     })
                 }
 
 
-                
 
-             
+
+
             }
-           }
+        }
 
     });
 
